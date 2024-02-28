@@ -1,16 +1,16 @@
 import { Router } from 'express';
-import * as productsController from '../controllers/products.controller.js';
+import { getProducts, getProduct, addProduct, editProduct, deleteProduct } from '../controllers/product.controller.js';
 
 const ProductsRouter = Router();
 // Ruta para obtener una lista de productos paginados
-ProductsRouter.get('/', productsController.getProducts);
+ProductsRouter.get('/', getProducts);
 // Ruta para obtener un producto por su ID
-ProductsRouter.get('/:productId', productsController.getProduct);
+ProductsRouter.get('/:productId', getProduct);
 // Ruta para agregar un nuevo producto
-ProductsRouter.post('/', productsController.addProduct);
+ProductsRouter.post('/', addProduct);
 // Ruta para editar un producto existente
-ProductsRouter.put('/:productId', productsController.editProduct);
+ProductsRouter.put('/:productId', editProduct);
 // Ruta para eliminar un producto por su ID
-ProductsRouter.delete('/:productId', productsController.deleteProduct);
+ProductsRouter.delete('/:productId', deleteProduct);
 
 export default ProductsRouter;
